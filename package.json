@@ -1,5 +1,5 @@
 {
-  "name": "eventsource",
+  "name": "@c4312/eventsource-umd",
   "version": "3.0.5",
   "description": "WhatWG/W3C compliant EventSource client for Node.js and browsers",
   "sideEffects": false,
@@ -128,8 +128,5 @@
       "no-undef": "off",
       "no-empty": "off"
     }
-  },
-  "publishConfig": {
-    "provenance": true
   }
 }
