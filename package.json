@@ -12,6 +12,7 @@
       "deno": "./dist/index.js",
       "bun": "./dist/index.js",
       "source": "./src/index.ts",
+      "umd": "./dist/index.umd.js",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs",
       "default": "./dist/index.js"
@@ -19,7 +20,8 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "pkg-utils build && pkg-utils --strict",
+    "build": "pkg-utils build && pkg-utils --strict && npm run build:umd",
+    "build:umd": "rollup -c",
     "build:watch": "pkg-utils watch",
     "clean": "rimraf dist coverage",
     "lint": "eslint . && tsc --noEmit",
@@ -66,6 +68,8 @@
     "eventsource-parser": "^3.0.0"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.2",
     "@sanity/pkg-utils": "^7.1.0",
     "@sanity/semantic-release-preset": "^5.0.0",
     "@tsconfig/strictest": "^2.0.5",
@@ -80,6 +84,7 @@
     "playwright": "^1.48.2",
     "prettier": "^3.5.3",
     "rimraf": "^5.0.5",
+    "rollup": "^4.35.0",
     "rollup-plugin-visualizer": "^5.12.0",
     "semantic-release": "^24.2.0",
     "sinon": "^17.0.1",
